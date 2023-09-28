@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)  // null olmayan field'lar alincak
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseMessage<E> {
     private E object;
     private HttpStatus httpStatus;
