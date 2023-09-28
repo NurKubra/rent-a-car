@@ -1,4 +1,4 @@
 package com.rentacar.controller.user;
 
-public class RegisteredController {
+public class AnonymController {
 }

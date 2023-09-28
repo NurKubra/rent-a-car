@@ -19,15 +19,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
-// ContactMessage  sınıfına parametresiz bir yapılandırıcı (constructor) ekler.
-// ContactMessage  sınıfının her özelliği için bir setter metodu ekler.
-  //      Bir  ContactMessage Builder iç içe sınıfı oluşturur ve bu sınıf, nesne oluşturma işlemini kolaylaştırmak için kullanılır.
-public class ContactMessage {       //  POJO  class
+public class ContactMessage {
 
-    @Id      // P.K icin
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //
 
     @NotNull
     private String name;
@@ -41,7 +37,6 @@ public class ContactMessage {       //  POJO  class
     @NotNull
     private String message;
 
-    // 2025-06-05
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate date;
 

@@ -14,7 +14,6 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/ContactMessage")
 @RequiredArgsConstructor
-//sadece  final olan field'lar icin  otomatik olarak constructor olusturur.
 public class ContactMessageController {
     private  ContactMessageService contactMessageService;
 
@@ -60,6 +59,7 @@ public class ContactMessageController {
     ){
         return contactMessageService.searchBySubject(subject,page,size,sort,type);
     }
-
+    // not: deleteWithId() **************************************************
+    String x = "Hello World";
 
 }
