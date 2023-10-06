@@ -1,4 +1,4 @@
-package com.rentacar.entity.business;
+package com.rentacar.entity.concretes.business;
 
 import com.rentacar.entity.enums.FuelType;
 import com.rentacar.entity.enums.TransmissionType;
