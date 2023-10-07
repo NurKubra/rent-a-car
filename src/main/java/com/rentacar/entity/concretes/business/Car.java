@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +42,9 @@ public class Car {
     private FuelType fuelType;
 
     private Boolean isAvailable;
+
+    @ManyToMany
+    private List<ImageFile> imageFile;
 
 
 
