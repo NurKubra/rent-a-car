@@ -9,9 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @MappedSuperclass
@@ -50,14 +48,10 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "user_roles", fetch = FetchType.LAZY)
     @JsonIgnore
-    @JoinTable(name = "user_roles_table",
-            joinColumns = @JoinColumn(name = "userRole_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<UserRole> roles = new HashSet<>();
-
-
-
+    @JoinTable(name = "user_user_roles_table",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "userRole_id"))
+    private Set<UserRole> roles;
 }

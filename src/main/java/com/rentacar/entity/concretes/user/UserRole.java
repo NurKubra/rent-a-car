@@ -7,18 +7,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name ="roles")
+@Table(name ="user_roles")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder  //toBuilder olmali mi ?
-public class UserRole {   //enumlarla aradaki ilskiyi saglayacak class
-
+@Builder
+public class UserRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,7 +27,7 @@ public class UserRole {   //enumlarla aradaki ilskiyi saglayacak class
 
     @ManyToMany
     @JsonIgnore
-    @JoinTable(name = "user_roles_table",
+    @JoinTable(name = "user_user_roles_table",
             joinColumns = @JoinColumn(name = "userRole_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> userList;
