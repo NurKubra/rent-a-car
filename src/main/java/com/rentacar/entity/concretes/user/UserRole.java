@@ -25,16 +25,6 @@ public class UserRole {
     @Column(length = 20)
     private RoleType roleType;
 
-    @ManyToMany
-    @JsonIgnore
-    @JoinTable(name = "user_user_roles_table",
-            joinColumns = @JoinColumn(name = "userRole_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<User> userList;
-
-
-
-
 
 
 }
