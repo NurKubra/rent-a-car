@@ -2,11 +2,13 @@ package com.rentacar.entity.concretes.business;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.rentacar.entity.abstracts.User;
+import com.rentacar.entity.concretes.user.Customer;
+import com.rentacar.entity.enums.ReservationStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -18,7 +20,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder(toBuilder = true)
 public class Reservation {
-    @Id
+ @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -27,9 +29,9 @@ public class Reservation {
     private ReservationStatus reservationStatus;
 
     // customer (Admin in de reservation yapabilmesi icin User konulabilir)
-    @ManyToOne
+
+
     //check joincolumn?
-    private User user;
 
     @OneToOne
     private Car car;
@@ -47,5 +49,9 @@ public class Reservation {
     @Column(name = "end_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate endDate;
+
+
+    @ManyToOne
+    private Customer customer;
 
 }

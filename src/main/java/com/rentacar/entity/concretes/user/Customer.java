@@ -2,6 +2,7 @@ package com.rentacar.entity.concretes.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rentacar.entity.abstracts.User;
+import com.rentacar.entity.concretes.business.Reservation;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -30,6 +31,6 @@ public class Customer  extends User {
     private boolean isActive;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)  //??
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Reservation> reservations;
 }

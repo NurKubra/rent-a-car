@@ -3,6 +3,7 @@ package com.rentacar.entity.abstracts;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.rentacar.entity.concretes.business.Reservation;
 import com.rentacar.entity.concretes.user.UserRole;
 import com.rentacar.entity.enums.Gender;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
-public class User {
+public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -48,10 +49,10 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @ManyToMany(mappedBy = "user_roles", fetch = FetchType.LAZY)
-    @JsonIgnore
-    @JoinTable(name = "user_user_roles_table",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "userRole_id"))
-    private Set<UserRole> roles;
+    @OneToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private UserRole userRole;
+
+
+
 }
