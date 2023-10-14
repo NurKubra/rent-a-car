@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Table(name="admins")
 @SuperBuilder
-public class Admin  extends User {
+public class Admin extends User {
 
     private boolean built_in;
 }
