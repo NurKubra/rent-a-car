@@ -2,6 +2,8 @@ package com.rentacar.entity.concretes.business;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.rentacar.entity.abstracts.User;
+import com.rentacar.entity.enums.ReservationStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
